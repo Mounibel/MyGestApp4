@@ -1,16 +1,18 @@
-FROM nginx
-COPY . /usr/share/nginx/html/
+
 # Specify a base image
-#FROM node:14
+FROM node:14
 
 # Set the working directory in the container
-#WORKDIR /app
+WORKDIR /app
 
 # Copy package.json and package-lock.json (or yarn.lock)
-#COPY package*.json ./
+COPY package*.json ./
 
 # Install dependencies
-#RUN npm install
+RUN npm install
+docker build -t myapp .
+docker run -d -p 80:3000 myapp
+
 
 
 # Copy the rest of your app's source code
@@ -20,5 +22,5 @@ COPY . /usr/share/nginx/html/
 #EXPOSE 3000
 
 # Run the app
-#CMD ["npm", "start"]
+CMD ["npm", "start"]
 
