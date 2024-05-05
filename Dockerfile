@@ -1,22 +1,24 @@
+FROM nginx
+COPY . /usr/share/nginx/html/
 # Specify a base image
-FROM node:14
+#FROM node:14
 
 # Set the working directory in the container
-WORKDIR /app
+#WORKDIR /app
 
 # Copy package.json and package-lock.json (or yarn.lock)
-COPY package*.json ./
+#COPY package*.json ./
 
 # Install dependencies
-RUN npm install
+#RUN npm install
 
 
 # Copy the rest of your app's source code
-COPY . .
+#COPY . .
 
 # Expose port 3000 to be accessible externally
-EXPOSE 3000
+#EXPOSE 3000
 
 # Run the app
-CMD ["npm", "start"]
+#CMD ["npm", "start"]
 
