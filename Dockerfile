@@ -10,16 +10,15 @@ COPY package*.json ./
 
 # Install dependencies
 RUN npm install
-docker build -t myapp .
-docker run -d -p 80:3000 myapp
+
 
 
 
 # Copy the rest of your app's source code
-#COPY . .
+COPY . .
 
 # Expose port 3000 to be accessible externally
-#EXPOSE 3000
+EXPOSE 3000
 
 # Run the app
 CMD ["npm", "start"]
